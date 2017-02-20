@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <script src="https://code.jquery.com/jquery-3.0.0-alpha1.js"></script>
+   </head>
+
+   <body>
+     <ul id="characters-list"></ul>
+
+     <script>
+       var sheetsuUrl = "https://sheetsu.com/apis/v1.0/fd1fd2c29f4b";
+
+       $.ajax({
+         url: sheetsuUrl,
+         dataType: 'json',
+         type: 'GET',
+
+         // place for handling successful response
+         success: function(data) {
+           addCharacters(data);
+         },
+
+         // handling error response
+         error: function(data) {
+           console.log(data);
+         }
+       });
+
+       addCharacters = function(characters) {
+         var list = $('#characters-list');
+         for(var i=0; i<characters.length; i+=1) {
+           char = characters[i];
+           html = "<li id=" + char.Name + "><h3>" +  char.Name +  char.Contribute + "</h3><p> Amount: " + char.Amount + "</p></li>";
+           list.append(html);
+         }
+       }
+     </script>
+   </body>
+ </html>
