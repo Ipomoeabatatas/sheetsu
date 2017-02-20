@@ -30,7 +30,7 @@
          var list = $('#characters-list');
          for(var i=0; i<characters.length; i+=1) {
            char = characters[i];
-           html = "<li id=" + char.Name + "><h3>" +  char.Name +  char.Contribute + "</h3><p> Amount: " + char.Amount + "</p></li>";
+           html = "<li id=" + char.id + ">" +  char.School +  char.Level + " Amount: " + char.SpellingWord + "</p></li>";
            list.append(html);
          }
        }
